@@ -45,3 +45,13 @@ var getJSONData = function(url){
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
 });
+function getUser(){
+  let user = localStorage.getItem("userr");
+  if(user!=undefined && user!=" "){
+      document.getElementById("cosonav").innerHTML += " " + user;
+  }
+}
+
+document.addEventListener("DOMContentLoaded",function(e){
+  getUser();
+});
