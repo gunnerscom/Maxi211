@@ -43,15 +43,10 @@ var getJSONData = function(url){
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
-});
-function getUser(){
-  let user = localStorage.getItem("userr");
-  if(user!=undefined && user!=" "){
-      document.getElementById("cosonav").innerHTML += " " + user;
-  }
-}
 
-document.addEventListener("DOMContentLoaded",function(e){
-  getUser();
+//la funcion para crear el nombre de usuario
+document.addEventListener("DOMContentLoaded", function(e){
+  if(localStorage.getItem("nombreusuario") != null){
+    document.getElementById("prueba").innerHTML += `<a class="py-2 d-none d-md-inline-block" href="#">`+ localStorage.getItem("nombreusuario") +`</a>`;
+  }
 });

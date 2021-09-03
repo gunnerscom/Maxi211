@@ -24,10 +24,14 @@ function showCategoriesList(array) {
                                 <small class="text-muted">` + category.soldCount + ` artículos vendidos</small>
                             </div>
                             <p>` + category.description + `</p>
+                            
+                    <p>` + category.currency + ` ` + category.cost + ` </p>
+                            
                         </div>
                     </div>
                 </div>
                 `
+                //linea 28 solucionamos en trabajo en equipo los precios en los productos
 
 
         document.getElementById("catalogo").innerHTML = htmlContentToAppend;
