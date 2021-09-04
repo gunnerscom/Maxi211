@@ -49,8 +49,8 @@ function showProductsList() {
     for (let i = 0; i < currentProductsArray.length; i++) {
         let products = currentProductsArray[i];
 
-        // filtro para poner por numero mimino y maximo precio "rango"
-          // filtro para poner por numero mimino y maximo precio "rango"
+        // filtro de precio minimo y maximo
+         
           if (((minCost == undefined) || (minCost != undefined && parseInt(products.cost) >= minCost)) &&
           ((maxCost == undefined) || (maxCost != undefined && parseInt(products.cost) <= maxCost))) {
 
@@ -78,7 +78,7 @@ function showProductsList() {
     }
 }
 
-//Se le da un criterio a currentSortCriteria min cost max cost
+//se le da criterio a currentSortCriteria 
 function sortAndShowProducts(sortCriteria, productsArray) {
     currentSortCriteria = sortCriteria; 
 
@@ -92,8 +92,8 @@ function sortAndShowProducts(sortCriteria, productsArray) {
     showProductsList();
 }
 
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
+//se ejecuta una vez que se haya lanzado el evento 
+//que el documento se encuentra cargado,se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCTS_URL).then(function (resultObj) {
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
 
     document.getElementById("rangeFilterCost").addEventListener("click", function () {
-        //Obtengo el mín y máx de los intervalos para filtrar por cantidad de productos
+        //minimo y maximo por producto
         
         minCost = document.getElementById("rangeFilterCostMin").value;
         maxCost = document.getElementById("rangeFilterCostMax").value;
