@@ -1,53 +1,4 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function (e) {
-
-});
-var categoriesArray = [];
-
-function showCategoriesList(array) {
-
-    let htmlContentToAppend = "";
-    for (let i = 0; i < array.length; i++) {
-        let category = array[i];
-
-        htmlContentToAppend += `
-            <div class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
-                </div>
-                        <div class="col">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h4 class="mb-1">`+ category.name + `</h4>
-                                <small class="text-muted">` + category.soldCount + ` artículos vendidos</small>
-                            </div>
-                            <p>` + category.description + `</p>
-                            
-                    <p>` + category.currency + ` ` + category.cost + ` </p>
-                            
-                        </div>
-                    </div>
-                </div>
-                `
-                //linea 28 solucionamos en trabajo en equipo los precios en los productos
-
-
-        document.getElementById("catalogo").innerHTML = htmlContentToAppend;
-    }
-}
-
-
-document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCTS_URL).then(function (resultObj) {
-        if (resultObj.status === "ok") {
-            categoriesArray = resultObj.data;
-            //Muestro las categorías ordenadas
-            showCategoriesList(categoriesArray);
-        }
-    });
-});
+// creo constantes para despues ser llamadas en las distintas funciones
 const ORDER_ASC_BY_COST = "MINMAX";
 const ORDER_DESC_BY_COST = "MAXMIN";
 const ORDER_BY_SOLD_COUNT = "Cant.";
@@ -98,7 +49,10 @@ function showProductsList() {
     for (let i = 0; i < currentProductsArray.length; i++) {
         let products = currentProductsArray[i];
 
-        
+        // filtro para poner por numero mimino y maximo precio "rango"
+          // filtro para poner por numero mimino y maximo precio "rango"
+          if (((minCost == undefined) || (minCost != undefined && parseInt(products.cost) >= minCost)) &&
+          ((maxCost == undefined) || (maxCost != undefined && parseInt(products.cost) <= maxCost))) {
 
 
             htmlContentToAppend += `
@@ -118,18 +72,18 @@ function showProductsList() {
                     </div>
                 </div>
                 `
+          }
 
-
-                document.getElementById("products").innerHTML = htmlContentToAppend;
+                document.getElementById("catalogo").innerHTML = htmlContentToAppend;
     }
 }
 
-
+//Se le da un criterio a currentSortCriteria min cost max cost
 function sortAndShowProducts(sortCriteria, productsArray) {
-    currentSortCriteria = sortCriteria; //Se le da un criterio a currentSortCriteria(Ej:ORDER_ASC_BY_COST).
+    currentSortCriteria = sortCriteria; 
 
     if (productsArray != undefined) {
-        currentProductsArray = productsArray; //Si productsArray es distinto a undefined, nos devolverá una lista.
+        currentProductsArray = productsArray; 
     }
 
     currentProductsArray = sortProducts(currentSortCriteria, currentProductsArray);
@@ -171,8 +125,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
 
     document.getElementById("rangeFilterCost").addEventListener("click", function () {
-        //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
-        //de productos por categoría.
+        //Obtengo el mín y máx de los intervalos para filtrar por cantidad de productos
+        
         minCost = document.getElementById("rangeFilterCostMin").value;
         maxCost = document.getElementById("rangeFilterCostMax").value;
 
