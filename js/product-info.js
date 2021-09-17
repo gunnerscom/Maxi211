@@ -33,10 +33,10 @@ document.addEventListener("DOMContentLoaded", function(e){
       const infoUrl = window.location.search;
       //console.log(infoUrl);
       const urlParams = new URLSearchParams(infoUrl);
-      const productName = urlParams.get('title')
-      const productCost = urlParams.get('cst')
-      const productDesc = urlParams.get('desc')
-      const productSold = urlParams.get('sold')
+      const productName = urlParams.get('name')
+      const productCost = urlParams.get('cost')
+      const productDesc = urlParams.get('description')
+      const productSold = urlParams.get('soldCount')
       //console.log(productName);
 
         if (resultObj.status === "ok")
