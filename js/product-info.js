@@ -37,23 +37,25 @@ document.addEventListener("DOMContentLoaded", function(e){
       const productCost = urlParams.get('cost')
       const productDesc = urlParams.get('description')
       const productSold = urlParams.get('soldCount')
+      
       //console.log(productName);
 
         if (resultObj.status === "ok")
         {
             product = resultObj.data;
-            let productNameNotaHTML = document.getElementById("nota");
+          
             let productNameTitleHTML = document.getElementById("productNameTitle");
             let productDescriptionHTML = document.getElementById("productDescription");
             let productCostHTML = document.getElementById("productCost");
             let productSoldCountHTML = document.getElementById("productSoldCount");
-            let productosRelacionadosHTML = document.getElementById("relatedProducts")
-
-            productNameNotaHTML.innerHTML = product.name;
-            productNameTitleHTML.innerHTML = productName;
-            productDescriptionHTML.innerHTML = productDesc;
-            productCostHTML.innerHTML = product.currency + " " + productCost;
-            productSoldCountHTML.innerHTML = productSold;
+            let productosRelacionadosHTML = document.getElementById("relatedProducts");
+            let productCategoryHTML = document.getElementById("productCategory");
+          
+            productNameTitleHTML.innerHTML = product.name;
+            productDescriptionHTML.innerHTML = product.description;
+            productCostHTML.innerHTML = product.currency + " " + product.cost;
+            productSoldCountHTML.innerHTML = product.soldCount;
+            productCategoryHTML.innerHTML = product.category;
 
             //Muestro las imagenes en forma de galería
             showImagesGallery(product.images);
