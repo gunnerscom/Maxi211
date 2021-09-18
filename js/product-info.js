@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                   </div>
               `
       
-              productosRelacionadosHTML.innerHTML += htmlContentToAppend;
+              
           }
 
         }
