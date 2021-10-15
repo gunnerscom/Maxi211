@@ -5,7 +5,7 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 
-
+// se ejecuta el json
 const CART_INFO_DESAFIATE = "https://japdevdep.github.io/ecommerce-api/cart/654.json";
 
 let cTotal = 0;
@@ -18,13 +18,13 @@ document.addEventListener("DOMContentLoaded", function (e) {
     }
   });
 });
-
+// muestro json
 function showCartInfo() {
   let HTMLAppletElement = "";
   for (let i = 0; i < cartinfo.articles.length; i++) {
     const element = cartinfo.articles[i];
     let currencyCost = element.unitCost;
-
+// se multiplica.40 para poner precio en dolares
     if (element.currency == "USD") {
       currencyCost *= 40;
     }
@@ -33,8 +33,10 @@ function showCartInfo() {
     cTotal += currencyCost * element.count;
     document.getElementById("pTotal").innerHTML = cTotal;
     HTMLAppletElement +=
-      `
-  
+    // muestro la lista del json
+    `
+
+      
   <tr>
                 <td data-th="Producto">
                   <div class="row">
@@ -63,11 +65,12 @@ function showCartInfo() {
   
   
   `;
+  //id para llamar en html
     document.getElementById("Products").innerHTML = HTMLAppletElement;
 
   }
 }
-
+//funcion para mostrar el total y que se actualice a tiempo real si se borra un articulo
 function price(i, unit) {
   let cuenta = document.getElementById("cantidad" + i).value * unit;
 
