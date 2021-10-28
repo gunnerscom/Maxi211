@@ -12,100 +12,82 @@
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
 
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
 </head>
 
-<body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="home.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <div class="btn-group">
-        <button type="button" class="btn btn-success" style="padding-top: inherit; padding-bottom: inherit;" id="prueba"></button>
-          <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding-top: inherit; padding-bottom: inherit;">
+<body style="background-color: rgba(15, 15, 15, 0.185);">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="home.html">Inicio</a>
+        </li>
+        <li class="nav-item"> <a class="nav-link" href="categories.html">Categorías</a></li>
+        <li class="nav-item"> <a class="nav-link" href="products.html">Productos</a> </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sell.html">Vender</a>
+        </li>
+        <div class="btn-group">
+          <button type="button" class="btn btn-success" style="padding-top: inherit; padding-bottom: inherit;"
+            id="prueba"></button>
+          <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" style="padding-top: inherit; padding-bottom: inherit;">
             <span class="sr-only">Toggle Dropdown</span>
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
             <button class="dropdown-item" type="button"><a href="cart.html">Ver mi carrito</a></button>
             <button class="dropdown-item" type="button"><a href="my-profile.html">Mi perfil</a></button>
             <button class="dropdown-item" type="button"><a href="index.html">Cerrar sesión</a></button>
-
+    
           </div>
-        </div>
+      </ul>
+      
+    </div>
+    
+    </div>
     </div>
   </nav>
-  <h1 style="background-color: rgb(185, 185, 162);" class="text-center mb-3">Mi Perfil</h1>
-  <br><br>
 
-  <div class="col-sm-3 profile">
-    <a href="https://ibb.co/vJtbHTn"><img src="https://i.ibb.co/SKL2PMC/WIN-20211013-09-04-09-Pro.jpg" alt="WIN-20211013-09-04-09-Pro" border="0"></a>
-    <img src="" alt="" id="imgPreview" class="img-circle img-responsive picProfile ">
-    <input type="file" id="inputFile" class="mb-3">
-  </div>
-  <br><br>
-  
-  <form class="form-horizontal">
-    <div class="card border-light mb-3 text-center ">
-      <div  style="background-color: rgb(185, 185, 162) ;" class="card-header shadow-sm" id="title">
-        <h5 >Datos Personales</h5>
+
+
+
+  <form class="form-horizontal" style="background-color: rgb(238, 232, 229);">
+    <h1 class="text-center mb-3" style="background-color: rgba(24, 23, 22, 0.425);"> MI PERFIL</h1>
+    <div class="mb-3 text-center ">
+      <div id="title">
+        <h5>DATOS</h5>
       </div>
-      <div style="background-color: rgba(218, 224, 205, 0.438)" class="card-body">
+      <div class="card-body">
         <div class="form-group row justify-content-center">
-          <label class="col-sm-1 col-form-label">Nombres</label>
+          <label class="col-sm-1 col-form-label">Nombre </label>
           <div class="col-sm-5 d-flex">
-            <input type="text" id="name" class="form-control" placeholder="Ingrese sus nombres">
+            <input type="text" id="name" class="form-control" placeholder="Ingresar Nombre">
           </div>
         </div>
-        
+
         <div class="form-group row justify-content-center">
-          <label class="col-sm-1 col-form-label">Apellidos</label>
+          <label class="col-sm-1 col-form-label">Apellido</label>
           <div class="col-sm-5 d-flex">
-            <input type="text" class="form-control " id="apellido" placeholder="Ingrese sus apellidos">
+            <input type="text" class="form-control " id="apellido" placeholder="Ingresar Apellido">
           </div>
         </div>
         <div class="form-group row justify-content-center">
           <label class="col-sm-1 col-form-label">Edad</label>
           <div class="col-sm-5 d-flex">
-            <input type="number" id="age" class="form-control " min="18" placeholder="Ingrese su edad">
+            <input type="number" id="age" class="form-control " min="18" placeholder="Ingresar Edad">
           </div>
         </div>
         <div class="form-group row justify-content-center">
           <label class="col-sm-1 col-form-label ">Teléfono</label>
           <div class="col-sm-5 d-flex">
-            <input type="text" id="phone" class="form-control" placeholder="Ingrese su teléfono">
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card bg-light mb-3 text-center">
-      <div style="background-color: rgb(185, 185, 162) ;" class="card-header shadow-sm" id="title2">
-        <h5>Datos de Cuenta</h5>
-      </div>
-      <div style="background-color: rgba(218, 224, 205, 0.438)" class="card-body">
-        <div class="form-group row justify-content-center">
-          <label class="col-sm-1 col-form-label">Usuario</label>
-          <div class="col-sm-5 d-flex" id="usuario">
+            <input type="text" id="phone" class="form-control" placeholder="Ingresar Telefono">
           </div>
         </div>
         <div class="form-group row justify-content-center">
@@ -115,27 +97,25 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="form-group row justify-content-center">
-      <div class="card">
-        <div style="background-color: rgba(140, 143, 135, 0.438)" class="card-body">
-          <button  type="submit" id="saveData" class="btn btn-light" btn-lg text-center"><i class="fas fa-save"></i> Guardar</button>
-          <button type="button" id="editData" class="btn btn-light" btn-lg text-center"> <i class="far fa-edit"></i> Editar</button>
-          <button type="reset" class="btn btn-light" btn-lg text-center" id="btnReset"><i class="fas fa-trash-restore"></i> Restablecer</button>
+
+      <div class="form-group row justify-content-center">
+        <div>
+          <div class="card-body">
+            <button type="submit" id="saveData" class="btn btn-light btn-lg text-center"><i class="fas fa-save"></i>
+              Guardar</button>
+            <button type="button" id="editData" class="btn btn-light btn-lg text-center"> <i class="far fa-edit"></i>
+              Editar</button>
+            <button type="reset" class="btn btn-light btn-lg text-center" id="btnReset"><i
+                class="fas fa-trash-restore"></i> Restablecer</button>
+          </div>
         </div>
       </div>
     </div>
+
+
   </form>
-  <footer class="text-muted bg-light">
-  </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
+
+
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
