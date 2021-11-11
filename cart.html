@@ -2,19 +2,19 @@
 <!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
 <html lang="en">
 
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <title>eMercado - Todo lo que busques está aquí</title>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>eMercado - Todo lo que busques está aquí</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-  </head>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
@@ -43,117 +43,250 @@
             <button class="dropdown-item" type="button"><a href="cart.html">Ver mi carrito</a></button>
             <button class="dropdown-item" type="button"><a href="my-profile.html">Mi perfil</a></button>
             <button class="dropdown-item" type="button"><a href="index.html">Cerrar sesión</a></button>
-    
+
           </div>
       </ul>
-      
+
     </div>
-    
+
     </div>
     </div>
   </nav>
   <div class="container">
-    <table id="cart" class="table table-hover table-condensed">
-      <!--creo tabla para mostrar datos de json-->
-      
-      <thead>
-        <tr>
-          <th style="width: 80%" class="text-center">Productos</th>
-          <th style="width: 5%" class="text-center">Precio</th>
-          <th style="width: 8%">Cantidad</th>
-          <th style="width: 22%" class="text-center">Subtotal </th>
-        </tr>
-      </thead>
-      <tbody id="Products">
-      </tbody>
-      <tfoot>
-        <tr>
-          <!--tipos de envios-->
-          <td colspan="4">
-            <h2 class="text-center">Tipo de envio</h2>
-          </td>
-        </tr>
-        <td>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="envio" >
-            <label class="form-check-label" for="envio">
-              <strong> Premium </strong> (2-5 días)
-            </label>
+    <div class="text-center p-4">
+      <h2>Carrito de compras</h2>
+      <p class="lead">Artículos a comprar.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="">
+      <table class="table-responsive"
+        style="width:auto; margin-left: auto; margin-right: auto; text-align:center; vertical-align:middle;">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Costo</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Subtotal</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody id="articulosCarrito">
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="container p-5">
+    <hr class="mb-4">
+    <h5 class="mb-3">Tipo de envío</h5>
+    <form class="needs-validation" id="cart-info">
+
+      <div class="d-block my-3">
+
+        <div class="custom-control custom-radio">
+          <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" checked="" required>
+          <label class="custom-control-label" for="premiumradio">Premium 2 a 5 días (15%)</label>
+        </div>
+
+        <div class="custom-control custom-radio">
+          <input id="expressradio" name="publicationType" type="radio" class="custom-control-input" required>
+          <label class="custom-control-label" for="expressradio">Express 5 a 8 días (7%)</label>
+        </div>
+
+        <div class="custom-control custom-radio">
+          <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" required>
+          <label class="custom-control-label" for="standardradio">Estándar 12 a 15 días (5%)</label>
+        </div>
+
+      </div>
+      <hr class="mb-4">
+      <h5 class="mb-3">Dirección de envío:</h5>
+
+      <div class="row">
+
+        <div class="col-4">
+          <label for="calleEnvio">Calle</label>
+          <input id="calleEnvio" type="text" class="form-control" required>
+        </div>
+
+        <div class="col-3">
+          <label for="numeroEnvio">Número de puerta</label>
+          <input id="numeroEnvio" type="text" class="form-control" required>
+        </div>
+
+        <div class="col-4">
+          <label for="esquinaEnvio">Esquina</label>
+          <input id="esquinaEnvio" type="text" class="form-control" required>
+        </div>
+
+      </div>
+
+      <hr class="mb-4">
+
+      <h5 class="mb-3">Costos</h5>
+
+      <ul class="list-group mb-3">
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">Subtotal</h6>
+            <small class="text-muted">Costo unitario del producto por cantidad</small>
           </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="envio" >
-            <label class="form-check-label" for="envio2">
-              <strong>Express</strong> (5-8 días)
-            </label>
+          <span class="text-muted" id="subTotalHTML"></span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">Costo de envío</h6>
+            <small class="text-muted">Según el tipo de envío</small>
           </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="envio" >
-            <label class="form-check-label" for="envio2">
-              <strong>Standard</strong> (12-15 días)
-              
-              
-            </label>
+          <span class="text-muted" id="costoEnvioHTML">-</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+          <span>Total ($)</span>
+          <strong id="costoTotal">-</strong>
+        </li>
+      </ul>
+
+      <hr class="mb-4">
+
+      <h5 class="mb-3">Forma de pago</h5>
+      <div class="row">
+        <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#formaPago">Seleccionar forma de
+          pago</button>
+      </div>
+
+
+
+      <div class="modal fade" tabindex="-1" role="dialog" id="formaPago">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Seleccione forma de pago</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="container">
+                <div class="row">
+                  <input form="cart-info" id="metodoTarjeta" name="tipoDePago" type="radio" class="form-check-input"
+                    style="margin-left:10px;">
+                  <label class="form-check-label" for="metodoTarjeta" id="tarjeta"
+                    style="margin-left:7%; margin-right:15%;">Tarjeta</label>
+                </div>
+                <hr>
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <label for="numeroTarjeta" style="margin-left:5%; margin-right:15%;">Número de tarjeta</label>
+                    <input form="cart-info" id="numeroTarjeta" name="pagoTarjeta" type="number" class="form-control">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="cvvTarjeta" style="margin-left:5%; margin-right:15%;">Cod. Seguridad</label>
+                    <input form="cart-info" id="cvvTarjeta" name="pagoTarjeta" type="number" class="form-control">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col-md-4">
+                    <label for="vencimientoTarjeta" style="margin-left:5%; margin-right:15%;">Vencimiento
+                      (MM/YY)</label>
+                    <input form="cart-info" id="vencimientoTarjeta" maxlength="5" minlength="4" name="pagoTarjeta"
+                      type="text" class="form-control">
+                  </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                  <input form="cart-info" id="metodoTransferencia" name="tipoDePago" type="radio"
+                    class="form-check-input" style="margin-left:10px;">
+                  <label class="form-check-label" for="metodoTransferencia" id="transferencia"
+                    style="margin-left:7%; margin-right:15%;">Transferencia bancaria</label>
+                </div>
+
+                <hr>
+
+                <div class="form-row">
+                  <div class="col-md-4">
+                    <label for="transferenciaBancaria" style="margin-left:5%; margin-right:15%;">Número de
+                      cuenta</label>
+                    <input form="cart-info" id="transferenciaBancaria" name="tipoDePago" type="text"
+                      class="form-control">
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            </div>
           </div>
-          <a  href="#openModal">Datos de envio</a>
-
-<div id="openModal" class="modalDialog">
-	<div>
-		<a href="#close" title="Close" class="close">X</a>
-		<h2>Ingrese datos</h2>
-    <p>Direccion <input type="text" name="nombre" required></p>
-    <p>Numero de puerta <input type="text" name="nombre" required></p>
-    <p>Departamento <input type="text" name="departamento" required></p>
-    
+        </div>
+      </div>
 
 
+      <hr class="mb-4">
+      <button onclick="comprar()" form="cart-info" class="btn btn-primary btn-lg" id="btnpago">Comprar</button>
 
-	</div>
-</div>
-        </td>
-        <tr>
-         
-        </tr>
-        <tr>
 
-          
+    </form>
   </div>
-  </div>
-  </form>
-  </div>
-  </div>
-  </div>
-</body>
-</div>
-</td>
-<td colspan="3" class="col text-right"> Total en pesos: <strong id="pTotal"> </strong> UYU
-</td>
-</tr>
-<tr>
-  <td colspan="4">
-    <a href=" #" class="btn btn-success btn-block  "> Pagar <i class="fa fa-angle-right " aria-hidden=" true"></i>
-    </a>
-  </td>
-</tr>
 
-</tfoot>
-</table>
-</div>
-</div>
-<div id="spinner-wrapper">
-  <div class="lds-ring">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </div>
+  </footer>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </div>
-  
-</div>
-<script src="js/jquery-3.4.1.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/dropzone.js"></script>
-<script src="js/init.js"></script>
-<script src="js/cart.js"></script>
-<script src="https://use.fontawesome.com/f3f48771e1.js"></script>
+
+
+
+  </section>
+  <!--Section: Content-->
+
+
+  </div>
+  <footer class="text-muted bg-light">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </div>
+  </footer>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/dropzone.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="https://use.fontawesome.com/f3f48771e1.js"></script>
+  <script
+      src="https://kit.fontawesome.com/62d1a3e9cc.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </body>
 
 </html>
